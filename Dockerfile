@@ -24,15 +24,15 @@ RUN \
 		mkdir /torch && \
 		./install.sh && \
 		ln -s /torch/bin/torch-activate /etc/profile.d/torch.sh && \
-		ln -s /torch/bin/* /usr/bin/ && \
-		ln -s /torch/lib/* /usr/lib && \
-		ln -s /torch/include/* /usr/include && \
 	cd /usr/src/luajit && \
 		make PREFIX=/torch LDFLAGS="-ljemalloc" && \
 		make PREFIX=/torch LDFLAGS="-ljemalloc" install && \
 		ln -sf luajit-2.1.0-beta1 /torch/bin/luajit && \
 		rm /torch/lib/libluajit.so && ln -s /torch/lib/libluajit-5.1.so /torch/lib/libluajit.so && \
 		cp /torch/lib/pkgconfig/luajit.pc /usr/lib/pkgconfig && \
+		ln -s /torch/bin/* /usr/bin/ && \
+		ln -s /torch/lib/* /usr/lib && \
+		ln -s /torch/include/* /usr/include && \
 	cd / && \
 	rm -rf /usr/src && \
 	apk del --purge cmake perl && \
