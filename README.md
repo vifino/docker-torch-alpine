@@ -1,4 +1,4 @@
-# Alpine-based Torch7 Dockerfile
+# Alpine-based Torch7 Dockerfile [![Build Status](https://travis-ci.org/vifino/docker-torch-alpine.svg?branch=master)](https://travis-ci.org/vifino/docker-torch-alpine)
 
 Simple as that.
 
