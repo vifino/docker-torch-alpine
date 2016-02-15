@@ -24,7 +24,10 @@ RUN \
 		ln -s /torch/bin/torch-activate /etc/profile.d/torch && \
 		ln -s /torch/bin/* /usr/bin/ && \
 		ln -s /torch/lib/* /usr/lib && \
+		ln -s /torch/include/* /usr/include && \
 	apk del --purge cmake perl && \
 	rm -rf /var/cache/apk/*
+
+COPY ./torch.pc /usr/lib/pkgconfig/luajit.pc
 
 CMD ["/torch/bin/th"]
