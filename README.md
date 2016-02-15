@@ -8,7 +8,10 @@ Torch will be installed at `/torch`.
 
 # Known Problems
 
-`nn` makes stuff segfault.
+The native libraries have a tendency to segfault.
+For now there is no workaround.
+
+Please look at [this issue at the Torch7 repo](https://github.com/torch/torch7/issues/549).
 
 # LICENSE
 MIT
