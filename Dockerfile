@@ -17,7 +17,7 @@ RUN \
 		imagemagick-dev graphicsmagick-dev fftw-dev zeromq-dev bash jemalloc-dev \
 	&& \
 	git clone https://github.com/torch/distro.git /usr/src/torch --recursive && \
-	git clone --depth=1 --branch=v2.1 https://github.com/luajit/luajit && \
+	git clone --depth=1 --branch=v2.1 https://github.com/luajit/luajit /usr/src/luajit && \
 	cd /usr/src/torch && \
 		sed -i 's/PREFIX=\$.*/PREFIX=\/torch/g' install.sh && \
 		sed -i "s/\-DHAVE_MALLOC_USABLE_SIZE=1/\-DHAVE_MALLOC_USABLE_SIZE=0/" /usr/src/torch/pkg/torch/lib/TH/CMakeLists.txt && \
