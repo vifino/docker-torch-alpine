@@ -23,16 +23,16 @@ RUN \
 		sed -i "s/\-DHAVE_MALLOC_USABLE_SIZE=1/\-DHAVE_MALLOC_USABLE_SIZE=0/" /usr/src/torch/pkg/torch/lib/TH/CMakeLists.txt && \
 		mkdir /torch && \
 		./install.sh && \
-		ln -s /torch/bin/torch-activate /etc/profile.d/torch.sh && \
+		ln -sf /torch/bin/torch-activate /etc/profile.d/torch.sh && \
 	cd /usr/src/luajit && \
 		make PREFIX=/torch LDFLAGS="-ljemalloc" && \
 		make PREFIX=/torch LDFLAGS="-ljemalloc" install && \
 		ln -sf luajit-2.1.0-beta1 /torch/bin/luajit && \
-		rm /torch/lib/libluajit.so && ln -s /torch/lib/libluajit-5.1.so /torch/lib/libluajit.so && \
-		cp /torch/lib/pkgconfig/luajit.pc /usr/lib/pkgconfig && \
-		ln -s /torch/bin/* /usr/bin/ && \
-		ln -s /torch/lib/* /usr/lib && \
-		ln -s /torch/include/* /usr/include && \
+		rm /torch/lib/libluajit.so && ln -sf /torch/lib/libluajit-5.1.so /torch/lib/libluajit.so && \
+		cp /torch/lib/pkgconfig/luajit.pc /usr/lib/pkgconfig/luajit.pc && \
+		ln -sf /torch/bin/* /usr/bin/ && \
+		ln -sf /torch/lib/* /usr/lib && \
+		ln -sf /torch/include/* /usr/include && \
 	cd / && \
 	rm -rf /usr/src && \
 	apk del --purge cmake perl && \
