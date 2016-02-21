@@ -31,7 +31,7 @@ RUN \
 		rm /torch/lib/libluajit.so && ln -sf /torch/lib/libluajit-5.1.so /torch/lib/libluajit.so && \
 		cp /torch/lib/pkgconfig/luajit.pc /usr/lib/pkgconfig/luajit.pc && \
 		ln -sf /torch/bin/* /usr/bin/ && \
-		ln -sf /torch/lib/* /usr/lib && \
+		ln -sf /torch/lib/pkgconfig/* /usr/lib/pkgconfig/* && \
 		ln -sf /torch/include/* /usr/include && \
 	cd / && \
 	rm -rf /usr/src && \
